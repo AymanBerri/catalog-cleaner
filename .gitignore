@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+
+# Project-specific (ADDED)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+output/*
+!output/.gitkeep
+.ipynb_checkpoints/
+*.xlsx
+*.parquet
