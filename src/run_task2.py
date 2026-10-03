@@ -3,7 +3,7 @@ Run Task 2 — extract dimension, color, material on the full dataset.
 
 Loads the parquet cache, applies the three extractors to every row,
 adds new columns (never modifies source), saves results, and prints
-coverage stats + samples where extraction failed (to be debugged).
+coverage stats + samples where extraction failed (used to debug and analyse flagged rows).
 """
 
 from pathlib import Path
