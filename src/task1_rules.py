@@ -28,8 +28,8 @@ NATURE_COL = "Nature"
 # Anything the title says that maps to a Nature different from what the
 # Nature label literally is.
 #
-#   These list were created only after analyzing the recon output, 
-#     and is updated through iteration.
+#   These lists were created only after analyzing the recon output,
+#     and are updated through iteration.
 # ---------------------------------------------------------------------
 SYNONYMS = {
     # Buffet family
@@ -53,14 +53,20 @@ SYNONYMS = {
     "canape convertible": "Canape droit",
     "canape clic clac": "Canape droit",
     "canape d angle": "Canapé d'angle",
+    "canape de relaxation": "Canape droit",
 
-    # Lit family
+    # Lit family — specific variants first (longest wins at match time)
+    "lit superpose": "Lit jeune",
+    "lit superposes": "Lit jeune",
     "lits superposes": "Lit jeune",
     "lit mezzanine": "Lit jeune",
     "lit combine": "Lit jeune",
     "lit junior": "Lit jeune",
-    "lit coffre": "Lit adulte",
+    "lit enfant": "Lit jeune",
     "rideaux cabane": "Lit jeune",
+    "lit coffre": "Lit adulte",
+    "lit double": "Lit adulte",
+    "lit julia": "Lit adulte",
 
     # Chaise family
     "fauteuil de bureau": "Chaise de bureau",
@@ -80,7 +86,8 @@ SYNONYMS = {
     # Etagere
     "etagere murale": "Etagère",
 
-    # Tapis
+    # Tapis — generic "tapis" now maps to the only Tapis Nature
+    "tapis": "Tapis de Salon et Ch",
     "tapis de salon": "Tapis de Salon et Ch",
 
     # Porte manteau
@@ -91,8 +98,6 @@ SYNONYMS = {
 
     # Lave-vaisselle
     "lave vaisselle": "Lave vaisselle",
-
-    # --- NEW ADDITIONS from pending_ml & to_review_rule samples ---
 
     # TV family
     "televiseur": "Tv ecran plat",
@@ -109,13 +114,21 @@ SYNONYMS = {
     "meuble sous vasque": "Rangement sdb",
     "vasque": "Rangement sdb",
 
-    # Notes: 
-    # Lit generic fallback (must be last resort — 3 chars, high false-match risk)
-    # "lit" is intentionally NOT added here to avoid matching "litre", "litige", etc.
-    # Instead, "lit 140x190" style titles will match via more specific synonyms
-    # or fall through to pending_ml for the ML stage to handle.
-}
+    # Accent-loss variants (export turned "ê"/"â" into a space)
+    "t te de lit": "Tete de lit",
+    "tete de lit": "Tete de lit",
 
+    # Separator / spacing variants
+    "croque gaufre": "Croque gaufre",
+    "robot p tissier": "Robot de cuisine",
+    "robot patissier": "Robot de cuisine",
+
+    # --- Iteration 4 additions (from pending_ml samples) ---
+    "meuble bas": "Meuble bas cuisine",
+    "colonne salle de bain": "Colonne sdb",
+    "torchon": "Linge d'office",
+    "menagere": "Menagere couvert",
+}
 
 # ---------------------------------------------------------------------
 # Non-product keywords — administrative rows, not products
