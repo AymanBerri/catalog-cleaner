@@ -35,6 +35,7 @@ SYNONYMS = {
     # Buffet family
     "bahut": "Buffet",
     "enfilade": "Buffet",
+
     # Table family
     "table a cafe": "Table basse",
     "table de salon": "Table basse",
@@ -42,40 +43,77 @@ SYNONYMS = {
     "table de salle a manger": "Table",
     "table a manger": "Table",
     "table repas": "Table",
+
     # Plaque de cuisson family
     "table de cuisson": "Plaque de cuisson",
     "plaque induction": "Plaque de cuisson",
+
     # Canape family
     "canape fixe": "Canape droit",
     "canape convertible": "Canape droit",
     "canape clic clac": "Canape droit",
     "canape d angle": "Canapé d'angle",
+
     # Lit family
     "lits superposes": "Lit jeune",
     "lit mezzanine": "Lit jeune",
     "lit combine": "Lit jeune",
     "lit junior": "Lit jeune",
+    "lit coffre": "Lit adulte",
+    "rideaux cabane": "Lit jeune",
+
     # Chaise family
     "fauteuil de bureau": "Chaise de bureau",
+
     # Meuble tv family
     "meuble tele": "Meuble tv",
     "banc tv": "Meuble tv",
+
     # Table de chevet
     "table de chevet": "Chevet",
     "table de nuit": "Chevet",
+
     # Sommier
     "sommier tapissier": "Sommier",
     "cadre a lattes": "Cadre à lattes",
+
     # Etagere
     "etagere murale": "Etagère",
+
     # Tapis
     "tapis de salon": "Tapis de Salon et Ch",
+
     # Porte manteau
     "portemanteau": "Porte manteau",
+
     # Refrigerateur
     "frigo": "Refrigerateur",
+
     # Lave-vaisselle
     "lave vaisselle": "Lave vaisselle",
+
+    # --- NEW ADDITIONS from pending_ml & to_review_rule samples ---
+
+    # TV family
+    "televiseur": "Tv ecran plat",
+    "tv": "Tv ecran plat",
+    "ecran plat": "Tv ecran plat",
+
+    # Housse de couette
+    "parure de couette": "Housse de couette",
+
+    # Chiffonnier ≈ commode
+    "chiffonnier": "Commode",
+
+    # Bathroom furniture
+    "meuble sous vasque": "Rangement sdb",
+    "vasque": "Rangement sdb",
+
+    # Notes: 
+    # Lit generic fallback (must be last resort — 3 chars, high false-match risk)
+    # "lit" is intentionally NOT added here to avoid matching "litre", "litige", etc.
+    # Instead, "lit 140x190" style titles will match via more specific synonyms
+    # or fall through to pending_ml for the ML stage to handle.
 }
 
 
