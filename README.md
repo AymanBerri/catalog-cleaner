@@ -60,6 +60,7 @@ Raw sales.xlsx (525,034 rows)
 
 ```
 catalog-cleaner/
+├── app.py                      # ← Streamlit dashboard
 ├── src/
 │   ├── load_data.py            # xlsx → parquet cache + EDA
 │   ├── preprocess.py           # two normalization functions
@@ -138,6 +139,18 @@ python -m src.final_pipeline
 ```bash
 pytest tests/
 ```
+
+### Explore the results interactively
+
+A small Streamlit dashboard lets you browse the output with filters and search.
+
+```bash
+pip install streamlit
+streamlit run app.py
+```
+
+Opens at `http://localhost:8501`.
+
 ---
 
 ## Final output
@@ -264,6 +277,7 @@ Full details: [`docs/task1_findings.md`](docs/task1_findings.md).
 - **openpyxl** — Excel read/write
 - **pytest** — 28 unit tests for Task 2 extractors
 - **tqdm** — progress bars
+- **streamlit** — interactive dashboard for exploring the results
 
 ## Design principles
 
