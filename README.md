@@ -89,41 +89,55 @@ catalog-cleaner/
 
 ## Quickstart
 
-### Setup
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/AymanBerri/catalog-cleaner.git
+cd catalog-cleaner
+```
+
+### 2. Set up the environment
 
 ```bash
 python -m venv .venv
-source .venv/Scripts/activate    # Windows: .venv\Scripts\activate
+source .venv/Scripts/activate    # Windows
+# source .venv/bin/activate      # macOS / Linux
+
 pip install -r requirements.txt
 ```
 
-### Run the full pipeline
+### 3. Add the source file
+
+Place `sales.xlsx` in `data/raw/`.
+
+*(The file is not committed — client data is gitignored.)*
+
+### 4. Run the full pipeline
 
 ```bash
-# 1. Load + cache the source data (once)
+# 1. Load + cache the source data (once, ~3 min for 525k rows)
 python src/load_data.py
 
-# 2. Task 2 — extract dimension, color, material
+# 2. Task 2 — extract dimension, unit, color, material (~1 min)
 python -m src.run_task2
 
-# 3. Task 1 — rule matcher
+# 3. Task 1 — rule matcher (~40 sec)
 python -m src.task1_matcher
 
-# 4. Task 1 — ML classifier
+# 4. Task 1 — ML classifier (~3–5 min)
 python -m src.task1_ml
 
-# 5. Merge into the final deliverable
+# 5. Merge into the final deliverable (~4–8 min)
 python -m src.final_pipeline
 ```
 
-**Output:** `output/resultats.xlsx`
+**Output:** `output/resultats.xlsx` — 525,034 rows, 17 columns.
 
 ### Run the tests
 
 ```bash
 pytest tests/
 ```
-
 ---
 
 ## Final output
