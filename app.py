@@ -15,7 +15,12 @@ import streamlit as st
 # Paths
 # ---------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent
-RESULTS = ROOT / "output" / "resultats.parquet"
+
+# Prefer the full dataset (local). Fall back to the sample
+# (Streamlit Cloud, where the full parquet is gitignored).
+FULL = ROOT / "output" / "resultats.parquet"
+SAMPLE = ROOT / "resultats_sample.parquet"
+RESULTS = FULL if FULL.exists() else SAMPLE
 
 # ---------------------------------------------------------------------
 # Page setup
@@ -27,7 +32,14 @@ st.set_page_config(
 )
 
 st.title("Catalog Cleaner — Results")
-st.caption("525,034 sales lines · Task 1 (mis-categorization) + Task 2 (extraction)")
+if not FULL.exists():
+    st.warning(
+        "⚠️ **Demo mode — 10,000-row sample.** "
+        "The full 525,034-row dataset is not included in this deployment. "
+        "Numbers below are computed on the sample, not on the full data."
+    )
+
+st.caption("Task 1 (mis-categorization) + Task 2 (extraction) on furniture marketplace listings")
 
 # ---------------------------------------------------------------------
 # Load data (cached — Streamlit re-runs the script on every interaction)
