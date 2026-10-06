@@ -1,5 +1,7 @@
 # catalog-cleaner
 
+**🔗 Live demo:** [catalog-cleaner-demo.streamlit.app](https://catalog-cleaner-demo.streamlit.app/)
+
 Data cleaning and catalog enrichment for furniture marketplace listings.
 
 **What it does:**
@@ -142,7 +144,14 @@ pytest tests/
 
 ### Explore the results interactively
 
+
 A small Streamlit dashboard lets you browse the output with filters and search.
+
+**🔗 Live demo:** [catalog-cleaner-demo.streamlit.app](https://catalog-cleaner-demo.streamlit.app/)
+
+*Note: the live demo uses a 10,000-row sample of the data — the full dataset is not included in the deployment.*
+
+To run it locally:
 
 ```bash
 pip install streamlit
